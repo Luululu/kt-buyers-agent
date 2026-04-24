@@ -31,7 +31,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   if ('IntersectionObserver' in window) {
-    const revealables = document.querySelectorAll('.section-head, .card, .steps li, .quote, .hero-card, .about-photo');
+    const revealables = document.querySelectorAll('.section-head, .card, .steps li, .case-card, .value-item, .hero-card, .about-photo');
     revealables.forEach((el) => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
