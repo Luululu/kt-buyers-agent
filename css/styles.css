@@ -389,6 +389,24 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Process — 8 steps need 4 columns */
 .steps { grid-template-columns: repeat(4, 1fr); }
 
+/* Video */
+.video-section { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.video-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 /* Cases */
 .cases { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
