@@ -151,7 +151,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
       rgba(243, 237, 227, 0.82) 50%,
       rgba(243, 237, 227, 0.25) 75%,
       rgba(243, 237, 227, 0.1) 100%),
-    url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1800&q=80&auto=format&fit=crop") right center / cover no-repeat;
+    url("../assets/homes/hero.jpg") right center / cover no-repeat;
   background-color: var(--cream);
 }
 @media (max-width: 960px) {
@@ -161,7 +161,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
         var(--cream) 0%,
         rgba(243, 237, 227, 0.9) 55%,
         rgba(243, 237, 227, 0.7) 100%),
-      url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80&auto=format&fit=crop") center bottom / cover no-repeat;
+      url("../assets/homes/hero.jpg") center bottom / cover no-repeat;
     background-color: var(--cream);
   }
 }
