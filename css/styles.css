@@ -451,24 +451,22 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .team-section { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .team-members {
   display: grid;
-  gap: clamp(56px, 8vw, 96px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 28px;
   max-width: 1040px;
   margin: 0 auto;
 }
 .team-member {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
-.team-member:nth-child(even) .team-photo { order: 2; }
-.team-member:nth-child(even) .team-bio { order: 1; }
 .team-photo {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
   background: var(--sand-100);
+  margin-bottom: 18px;
 }
 .team-photo img {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -476,31 +474,29 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 .team-member:hover .team-photo img { transform: scale(1.03); }
 .team-bio h3 {
-  font-size: clamp(1.4rem, 2vw, 1.7rem);
-  margin-bottom: 6px;
+  font-size: 1.2rem;
+  margin: 0 0 4px;
   color: var(--green-900);
 }
 .team-bio .team-role {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   color: var(--green-700);
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin: 0 0 12px;
 }
 .team-bio p {
   color: var(--ink);
-  font-size: 0.98rem;
-  line-height: 1.85;
-  margin-bottom: 1em;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
 }
-.team-bio p:last-child { margin-bottom: 0; }
-@media (max-width: 720px) {
-  .team-member,
-  .team-member:nth-child(even) { grid-template-columns: 1fr; gap: 24px; }
-  .team-member:nth-child(even) .team-photo,
-  .team-member:nth-child(even) .team-bio { order: initial; }
-  .team-photo { max-width: 380px; margin: 0 auto; width: 100%; }
+@media (max-width: 960px) {
+  .team-members { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+}
+@media (max-width: 560px) {
+  .team-members { grid-template-columns: 1fr; max-width: 360px; }
 }
 
 /* Gallery */
