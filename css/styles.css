@@ -411,6 +411,19 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Process — 8 steps need 4 columns */
 .steps { grid-template-columns: repeat(4, 1fr); }
 
+/* About — nested video subsection */
+.about-videos { margin-top: clamp(48px, 6vw, 80px); }
+.subsection-head {
+  text-align: center;
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+.subsection-head .eyebrow { margin-bottom: 0.5em; }
+.subsection-head h3 {
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  color: var(--green-900);
+  margin: 0;
+}
+
 /* Video */
 .video-section { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .video-grid {
