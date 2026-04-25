@@ -89,6 +89,20 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .btn-primary:hover { background: var(--green-700); color: #fff; transform: translateY(-1px); }
 .btn-ghost { background: transparent; color: var(--green-800); border-color: var(--line-strong); }
 .btn-ghost:hover { background: rgba(92, 106, 94, 0.06); }
+
+/* Arrow accent on CTA buttons (excludes block-width buttons like form submits) */
+.btn-primary:not(.btn-block)::after,
+.btn-ghost:not(.btn-block)::after {
+  content: '→';
+  margin-left: 6px;
+  display: inline-block;
+  transition: transform 0.25s var(--ease);
+  font-weight: 400;
+}
+.btn-primary:not(.btn-block):hover::after,
+.btn-ghost:not(.btn-block):hover::after {
+  transform: translateX(4px);
+}
 .btn-block { width: 100%; }
 
 /* Header */
