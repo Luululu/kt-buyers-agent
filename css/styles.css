@@ -222,8 +222,8 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Services */
 .services { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .card-grid {
-  display: grid; gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
 }
 .card {
   position: relative;
