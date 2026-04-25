@@ -597,6 +597,52 @@ p  { margin: 0 0 1em; color: var(--ink); }
 
 /* Cases */
 .cases { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+.case-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 clamp(28px, 4vw, 44px);
+}
+.case-tabs {
+  display: inline-flex;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 2px;
+}
+.case-tab {
+  padding: 10px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+  letter-spacing: 0.02em;
+}
+.case-tab:hover { color: var(--green-700); }
+.case-tab.is-active {
+  background: var(--green-800);
+  color: #fff;
+}
+
+.case-pages {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0; /* room for hover lift */
+}
+.case-page {
+  flex: 0 0 100%;
+  width: 100%;
+  transition: transform 0.5s var(--ease);
+}
+.case-pages[data-active="investment"] .case-page { transform: translateX(-100%); }
+
 .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
 .case-card {
   background: var(--cream);

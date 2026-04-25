@@ -30,6 +30,24 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // Cases tab switcher (自住 / 投资)
+  const casePages = document.querySelector('.case-pages');
+  const caseTabs = document.querySelectorAll('.case-tab');
+  if (casePages && caseTabs.length) {
+    caseTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        if (!target) return;
+        casePages.dataset.active = target;
+        caseTabs.forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', String(active));
+        });
+      });
+    });
+  }
+
   // Image carousel for case cards
   document.querySelectorAll('.case-carousel').forEach((carousel) => {
     const slides = carousel.querySelector('.case-slides');
