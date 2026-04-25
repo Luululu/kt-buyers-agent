@@ -30,6 +30,36 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // Image carousel for case cards
+  document.querySelectorAll('.case-carousel').forEach((carousel) => {
+    const slides = carousel.querySelector('.case-slides');
+    if (!slides) return;
+    const imgs = slides.children;
+    if (imgs.length < 2) return;
+    const dots = carousel.querySelectorAll('.carousel-dots span');
+    let idx = 0;
+
+    const go = (i) => {
+      idx = (i + imgs.length) % imgs.length;
+      slides.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d, j) => d.classList.toggle('active', j === idx));
+    };
+
+    const prev = carousel.querySelector('.carousel-prev');
+    const next = carousel.querySelector('.carousel-next');
+    if (prev) prev.addEventListener('click', (e) => { e.preventDefault(); go(idx - 1); });
+    if (next) next.addEventListener('click', (e) => { e.preventDefault(); go(idx + 1); });
+
+    let startX = null;
+    slides.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    slides.addEventListener('touchend', (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+  });
+
   if ('IntersectionObserver' in window) {
     const revealables = document.querySelectorAll('.section-head, .card, .steps li, .case-card, .value-item, .hero-card, .about-photo');
     revealables.forEach((el) => el.classList.add('reveal'));

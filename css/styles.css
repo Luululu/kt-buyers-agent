@@ -597,7 +597,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
 
 /* Cases */
 .cases { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
 .case-card {
   background: var(--cream);
   border: 1px solid var(--line);
@@ -613,12 +613,74 @@ p  { margin: 0 0 1em; color: var(--ink); }
   margin: -28px -28px 20px;
   overflow: hidden;
   background: var(--sand-100);
+  position: relative;
 }
-.case-image img {
+.case-image > img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.6s var(--ease);
 }
-.case-card:hover .case-image img { transform: scale(1.04); }
+.case-card:hover .case-image > img { transform: scale(1.04); }
+
+/* Carousel */
+.case-carousel { position: relative; }
+.case-slides {
+  display: flex;
+  width: 100%; height: 100%;
+  transition: transform 0.5s var(--ease);
+}
+.case-slides img {
+  flex: 0 0 100%;
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 0 4px; /* nudge chevron up */
+  opacity: 0;
+  transition: background 0.2s var(--ease), opacity 0.2s var(--ease);
+  z-index: 2;
+}
+.case-carousel:hover .carousel-prev,
+.case-carousel:hover .carousel-next { opacity: 1; }
+.carousel-prev:hover,
+.carousel-next:hover { background: rgba(0, 0, 0, 0.7); }
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 6px;
+  z-index: 2;
+}
+.carousel-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.carousel-dots span.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+@media (hover: none) {
+  .carousel-prev, .carousel-next { opacity: 1; }
+}
 .case-head { margin-bottom: 18px; }
 .case-tag {
   display: inline-block; font-size: 0.75rem;
