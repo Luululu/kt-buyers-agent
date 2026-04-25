@@ -190,6 +190,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
   box-shadow: var(--shadow-md);
   border: 1px solid var(--line);
 }
+.hero-video { align-self: center; }
 .hero-card h2 { font-size: 1.35rem; margin-bottom: 8px; }
 .hero-card p { color: var(--ink-muted); margin-bottom: 18px; }
 .hero-card .btn { margin-top: 8px; }
