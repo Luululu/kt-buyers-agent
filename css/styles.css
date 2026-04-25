@@ -631,7 +631,8 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .case-slides img {
   flex: 0 0 100%;
   width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  object-fit: cover; object-position: center top;
+  display: block;
 }
 .carousel-prev,
 .carousel-next {
