@@ -521,9 +521,9 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .team-section { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .team-members {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 28px;
-  max-width: 1040px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 36px;
+  max-width: 880px;
   margin: 0 auto;
 }
 .team-member {
