@@ -533,8 +533,8 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Contact */
 .contact {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
-    url("../assets/homes/bg-goldcoast-sea.jpg") center / cover no-repeat;
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("../assets/homes/bg-consultation.jpg") center / cover no-repeat;
   background-color: #fff;
   border-top: 1px solid var(--line);
 }
