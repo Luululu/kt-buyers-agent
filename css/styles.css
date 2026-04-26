@@ -546,7 +546,10 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .contact-list li a:hover { border-bottom-color: var(--green-700); }
 
 .contact-form {
-  background: var(--cream); border: 1px solid var(--line);
+  background: rgba(245, 239, 230, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg); padding: 28px;
   display: grid; gap: 16px;
 }
