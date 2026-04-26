@@ -578,10 +578,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
   background-color: #fff;
   background-image:
     radial-gradient(900px 500px at 100% 0%, rgba(176, 141, 79, 0.10), transparent 60%),
-    radial-gradient(700px 480px at 0% 100%, rgba(229, 212, 172, 0.18), transparent 60%),
-    radial-gradient(circle, rgba(42, 31, 23, 0.07) 1.4px, transparent 1.6px);
-  background-size: auto, auto, 26px 26px;
-  background-position: 0 0, 0 0, 0 0;
+    radial-gradient(700px 480px at 0% 100%, rgba(229, 212, 172, 0.18), transparent 60%);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   position: relative;
