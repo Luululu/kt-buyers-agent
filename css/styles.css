@@ -533,26 +533,10 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Contact */
 .contact {
   background:
-    linear-gradient(115deg,
-      #fff 0%,
-      #fff 45%,
-      rgba(255, 255, 255, 0.88) 70%,
-      rgba(255, 255, 255, 0.55) 100%),
-    url("../assets/homes/bg-goldcoast-sea.jpg") right center / cover no-repeat;
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    url("../assets/homes/bg-goldcoast-sea.jpg") center / cover no-repeat;
   background-color: #fff;
   border-top: 1px solid var(--line);
-}
-@media (max-width: 760px) {
-  .contact {
-    background:
-      linear-gradient(180deg,
-        #fff 0%,
-        rgba(255, 255, 255, 0.92) 55%,
-        rgba(255, 255, 255, 0.7) 100%),
-      url("../assets/homes/bg-goldcoast-sea.jpg") center bottom / cover no-repeat;
-    background-color: #fff;
-    border-top: 1px solid var(--line);
-  }
 }
 .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 64px); }
 .contact-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 12px; }
