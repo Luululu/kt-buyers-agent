@@ -867,27 +867,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .case-note .btn:hover { background: var(--sand); color: var(--green-900); }
 
 /* Value */
-.value {
-  background:
-    linear-gradient(260deg,
-      var(--cream) 0%,
-      var(--cream) 38%,
-      rgba(245, 239, 230, 0.88) 62%,
-      rgba(245, 239, 230, 0.55) 100%),
-    url("../assets/homes/bg-brisbane-night.jpg") left center / cover no-repeat;
-  background-color: var(--cream);
-}
-@media (max-width: 760px) {
-  .value {
-    background:
-      linear-gradient(180deg,
-        var(--cream) 0%,
-        rgba(245, 239, 230, 0.92) 55%,
-        rgba(245, 239, 230, 0.7) 100%),
-      url("../assets/homes/bg-brisbane-night.jpg") center bottom / cover no-repeat;
-    background-color: var(--cream);
-  }
-}
+.value { background: var(--cream); }
 .value-grid {
   display: flex;
   flex-wrap: wrap;
@@ -895,6 +875,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
   gap: 20px;
 }
 .value-item {
+  position: relative;
   background: #fff; border: 1px solid var(--line);
   border-radius: var(--radius-lg); padding: 28px;
   display: grid;
@@ -921,6 +902,15 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .value-item h3 { margin: 0; color: var(--green-900); text-align: left; grid-area: title; }
 .value-item p { color: var(--ink); margin: 0; font-size: 0.95rem; line-height: 1.75; grid-area: desc; }
 .value-item strong { color: var(--green-800); font-weight: 600; }
+.value-icon {
+  position: absolute;
+  top: 22px; right: 22px;
+  width: 32px; height: 32px;
+  color: var(--sand);
+  opacity: 0.32;
+  pointer-events: none;
+}
+.value-item:hover .value-icon { opacity: 0.55; }
 
 /* Socials (contact) */
 .socials { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
