@@ -410,6 +410,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 
 /* Fit (适合 / 不适合) */
+.fit { padding-top: 0; }
 .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 28px); }
 .fit-card {
   background: #fff;
