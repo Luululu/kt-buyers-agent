@@ -465,7 +465,29 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 
 /* Contact */
-.contact { background: #fff; border-top: 1px solid var(--line); }
+.contact {
+  background:
+    linear-gradient(115deg,
+      #fff 0%,
+      #fff 45%,
+      rgba(255, 255, 255, 0.88) 70%,
+      rgba(255, 255, 255, 0.55) 100%),
+    url("../assets/homes/bg-goldcoast-sea.jpg") right center / cover no-repeat;
+  background-color: #fff;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 760px) {
+  .contact {
+    background:
+      linear-gradient(180deg,
+        #fff 0%,
+        rgba(255, 255, 255, 0.92) 55%,
+        rgba(255, 255, 255, 0.7) 100%),
+      url("../assets/homes/bg-goldcoast-sea.jpg") center bottom / cover no-repeat;
+    background-color: #fff;
+    border-top: 1px solid var(--line);
+  }
+}
 .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 64px); }
 .contact-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 12px; }
 .contact-list li { display: grid; grid-template-columns: 70px 1fr; gap: 12px; align-items: baseline; }
@@ -845,7 +867,27 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .case-note .btn:hover { background: var(--sand); color: var(--green-900); }
 
 /* Value */
-.value { background: var(--cream); }
+.value {
+  background:
+    linear-gradient(100deg,
+      var(--cream) 0%,
+      var(--cream) 38%,
+      rgba(245, 239, 230, 0.88) 62%,
+      rgba(245, 239, 230, 0.55) 100%),
+    url("../assets/homes/bg-brisbane-night.jpg") right center / cover no-repeat;
+  background-color: var(--cream);
+}
+@media (max-width: 760px) {
+  .value {
+    background:
+      linear-gradient(180deg,
+        var(--cream) 0%,
+        rgba(245, 239, 230, 0.92) 55%,
+        rgba(245, 239, 230, 0.7) 100%),
+      url("../assets/homes/bg-brisbane-night.jpg") center bottom / cover no-repeat;
+    background-color: var(--cream);
+  }
+}
 .value-grid {
   display: flex;
   flex-wrap: wrap;
