@@ -258,7 +258,25 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 
 /* Process */
-.process { background: var(--cream); }
+.process {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(620px 420px at 0% 0%, rgba(229, 212, 172, 0.18), transparent 60%),
+    radial-gradient(700px 460px at 100% 100%, rgba(176, 141, 79, 0.10), transparent 60%);
+}
+.process > .container { position: relative; z-index: 1; }
+.process::before {
+  content: "";
+  position: absolute;
+  top: 60px; right: -40px;
+  width: 380px; height: 280px;
+  background: url("../assets/decor/process-dots.svg") no-repeat center / contain;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
 .steps {
   list-style: none; padding: 0; margin: 0;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
@@ -293,7 +311,25 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 
 /* About */
-.about { background: var(--cream); }
+.about {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(680px 440px at 100% 0%, rgba(176, 141, 79, 0.10), transparent 60%),
+    radial-gradient(580px 400px at 0% 100%, rgba(229, 212, 172, 0.16), transparent 60%);
+}
+.about > .container { position: relative; z-index: 1; }
+.about::before {
+  content: "";
+  position: absolute;
+  bottom: -40px; right: -60px;
+  width: 320px; height: 320px;
+  background: url("../assets/decor/house.svg") no-repeat center / contain;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
 .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .about-photo {
   border-radius: var(--radius-lg); overflow: hidden;
@@ -384,6 +420,27 @@ p  { margin: 0 0 1em; color: var(--ink); }
   margin: 0;
 }
 
+/* FAQ */
+.faq {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(680px 440px at 0% 100%, rgba(176, 141, 79, 0.10), transparent 60%),
+    radial-gradient(560px 380px at 100% 0%, rgba(229, 212, 172, 0.14), transparent 60%);
+}
+.faq > .container { position: relative; z-index: 1; }
+.faq::before {
+  content: "";
+  position: absolute;
+  top: -40px; left: -60px;
+  width: 340px; height: 340px;
+  background: url("../assets/decor/question.svg") no-repeat center / contain;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* FAQ list */
 .faq-list { display: grid; gap: 12px; }
 .faq-list details {
@@ -410,7 +467,16 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 
 /* Fit (适合 / 不适合) */
-.fit { padding-top: 0; }
+.fit {
+  padding-top: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(560px 380px at 100% 100%, rgba(176, 141, 79, 0.10), transparent 60%),
+    radial-gradient(480px 340px at 0% 0%, rgba(229, 212, 172, 0.12), transparent 60%);
+}
+.fit > .container { position: relative; z-index: 1; }
 .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 28px); }
 .fit-card {
   background: #fff;
@@ -867,7 +933,15 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .case-note .btn:hover { background: var(--sand); color: var(--green-900); }
 
 /* Value */
-.value { background: var(--cream); }
+.value {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(640px 420px at 100% 100%, rgba(176, 141, 79, 0.10), transparent 60%),
+    radial-gradient(560px 380px at 0% 0%, rgba(229, 212, 172, 0.14), transparent 60%);
+}
+.value > .container { position: relative; z-index: 1; }
 .value-grid {
   display: flex;
   flex-wrap: wrap;
