@@ -922,7 +922,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
   overflow: hidden;
   background:
     linear-gradient(rgba(245, 239, 230, 0.78), rgba(245, 239, 230, 0.78)),
-    url("../assets/homes/bg-newfarm.jpg") center / cover no-repeat;
+    url("../assets/homes/bg-premium-suburb.jpg") center / cover no-repeat;
   background-color: var(--cream);
 }
 .value > .container { position: relative; z-index: 1; }
