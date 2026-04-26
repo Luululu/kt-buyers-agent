@@ -869,12 +869,12 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Value */
 .value {
   background:
-    linear-gradient(100deg,
+    linear-gradient(260deg,
       var(--cream) 0%,
       var(--cream) 38%,
       rgba(245, 239, 230, 0.88) 62%,
       rgba(245, 239, 230, 0.55) 100%),
-    url("../assets/homes/bg-brisbane-night.jpg") right center / cover no-repeat;
+    url("../assets/homes/bg-brisbane-night.jpg") left center / cover no-repeat;
   background-color: var(--cream);
 }
 @media (max-width: 760px) {
