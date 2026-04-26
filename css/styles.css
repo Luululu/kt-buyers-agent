@@ -243,7 +243,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .card h3 { margin-bottom: 8px; }
 .card p { color: var(--ink-muted); margin-bottom: 16px; }
 
-.card-featured { background: var(--green-700); color: #fff; border-color: var(--green-700); }
+.card-featured { background: #5a4534; color: #fff; border-color: #5a4534; }
 .card-featured .card-num { color: var(--sand-100); }
 .card-featured h3 { color: var(--sand-100); }
 .card-featured p { color: rgba(255, 255, 255, 0.92); }
