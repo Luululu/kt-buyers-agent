@@ -575,12 +575,6 @@ p  { margin: 0 0 1em; color: var(--ink); }
   font-size: 0.8rem;
   font-weight: 700;
 }
-.fit-placeholder {
-  color: var(--ink-muted);
-  font-style: italic;
-  margin: 0;
-}
-
 @media (max-width: 760px) {
   .fit-grid { grid-template-columns: 1fr; }
 }
