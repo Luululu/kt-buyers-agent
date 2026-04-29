@@ -787,12 +787,12 @@ p  { margin: 0 0 1em; color: var(--ink); }
   cursor: pointer;
 }
 .team-photo--flip .team-photo-inner {
-  /* Bottom-anchored inside the outer 4/5 container; aspect matches Jacob's
-     photo (872x782 = 1.115:1) so the back card occupies exactly the same
-     visible area as the front image — no empty dark space below. */
+  /* Bottom-anchored inside the outer 4/5 container; aspect matches the
+     visible photo (set per-card via --photo-aspect) so the back card
+     occupies exactly the same area as the front image. */
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  aspect-ratio: 872 / 782;
+  aspect-ratio: var(--photo-aspect, 872 / 782);
   transform-style: preserve-3d;
   transition: transform 0.7s var(--ease);
 }
