@@ -754,7 +754,7 @@ p  { margin: 0 0 1em; color: var(--ink); }
   flex-direction: column;
 }
 .team-photo {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
