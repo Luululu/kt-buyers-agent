@@ -315,35 +315,37 @@ p  { margin: 0 0 1em; color: var(--ink); }
 .steps li:nth-child(7) { grid-column: 2; grid-row: 2; }
 .steps li:nth-child(8) { grid-column: 1; grid-row: 2; }
 
-/* Chevron arrows between cards (CSS-drawn, no extra markup) */
+/* SVG arrows between cards (line + head, no extra markup) */
 .steps li::after {
   content: '';
   position: absolute;
-  width: 11px; height: 11px;
-  border: 0 solid var(--sand);
+  background: no-repeat center / contain;
   pointer-events: none;
 }
-/* Right-pointing chevrons: 1→2, 2→3, 3→4 */
+/* Right arrow: 1→2, 2→3, 3→4 */
 .steps li:nth-child(1)::after,
 .steps li:nth-child(2)::after,
 .steps li:nth-child(3)::after {
-  right: -28px; top: 50%;
-  border-top-width: 2px; border-right-width: 2px;
-  transform: translateY(-50%) rotate(45deg);
+  right: -36px; top: 50%;
+  width: 28px; height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 12' fill='none' stroke='%23b08d4f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 6h26M21 1l6 5-6 5'/%3E%3C/svg%3E");
+  transform: translateY(-50%);
 }
-/* Down-pointing chevron: 4↓5 (drops down at right edge) */
+/* Down arrow: 4↓5 (right column drops to second row) */
 .steps li:nth-child(4)::after {
-  bottom: -34px; left: 50%;
-  border-bottom-width: 2px; border-right-width: 2px;
-  transform: translateX(-50%) rotate(45deg);
+  bottom: -42px; left: 50%;
+  width: 12px; height: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 28' fill='none' stroke='%23b08d4f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 1v26M1 21l5 6 5-6'/%3E%3C/svg%3E");
+  transform: translateX(-50%);
 }
-/* Left-pointing chevrons: 5→6, 6→7, 7→8 */
+/* Left arrow: 5→6, 6→7, 7→8 */
 .steps li:nth-child(5)::after,
 .steps li:nth-child(6)::after,
 .steps li:nth-child(7)::after {
-  left: -28px; top: 50%;
-  border-bottom-width: 2px; border-left-width: 2px;
-  transform: translateY(-50%) rotate(45deg);
+  left: -36px; top: 50%;
+  width: 28px; height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 12' fill='none' stroke='%23b08d4f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M27 6H1M7 1L1 6l6 5'/%3E%3C/svg%3E");
+  transform: translateY(-50%);
 }
 /* Terminal: no arrow after step 8 */
 .steps li:nth-child(8)::after { display: none; }
