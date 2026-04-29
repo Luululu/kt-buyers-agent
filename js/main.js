@@ -100,11 +100,20 @@
       } catch (_) {}
 
       if (ok) {
-        const msg = document.createElement('p');
-        msg.className = 'form-success';
-        msg.setAttribute('role', 'status');
-        msg.textContent = form.dataset.success || 'Thanks — we will be in touch.';
-        form.replaceWith(msg);
+        const wrap = document.createElement('div');
+        wrap.className = 'form-success';
+        wrap.setAttribute('role', 'status');
+        wrap.innerHTML = `
+          <svg class="form-success__icon" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M14 24l7 7 14-14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="form-success__title"></p>
+          <p class="form-success__body"></p>
+        `;
+        wrap.querySelector('.form-success__title').textContent = form.dataset.success || 'Thanks';
+        wrap.querySelector('.form-success__body').textContent = form.dataset.successBody || '';
+        form.replaceWith(wrap);
       } else {
         if (btn) {
           btn.disabled = false;
