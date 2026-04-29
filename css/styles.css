@@ -516,6 +516,15 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 .faq-list details[open] summary::after { transform: rotate(45deg); }
 .faq-list details p { margin: 14px 0 0; color: var(--ink-muted); }
+.faq-list details ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  color: var(--ink-muted);
+  display: grid;
+  gap: 8px;
+}
+.faq-list details ul li::marker { color: var(--sand); }
+.faq-list details ul strong { color: var(--green-900); }
 
 @media (max-width: 960px) {
   .team-faq-grid { grid-template-columns: 1fr; gap: 56px; }
