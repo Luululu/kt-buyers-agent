@@ -779,6 +779,54 @@ p  { margin: 0 0 1em; color: var(--ink); }
   object-position: center bottom;
 }
 .team-member:hover .team-photo--cutout img { transform: scale(1.04) translateY(-1%); }
+
+/* Flip variant — front shows photo, back shows extended bio on hover/focus */
+.team-photo--flip {
+  perspective: 1200px;
+  position: relative;
+  cursor: pointer;
+}
+.team-photo--flip .team-photo-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease);
+}
+.team-photo--flip:hover .team-photo-inner,
+.team-photo--flip:focus-visible .team-photo-inner {
+  transform: rotateY(180deg);
+}
+.team-photo--flip:focus-visible { outline: none; }
+.team-photo--flip .team-photo-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.team-photo--flip .team-photo-face--front img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.team-photo--flip .team-photo-face--back {
+  transform: rotateY(180deg);
+  background: var(--green-900);
+  color: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+  -webkit-overflow-scrolling: touch;
+}
+.team-photo--flip .team-photo-face--back p {
+  margin: 0 0 10px;
+  color: inherit;
+}
+.team-photo--flip .team-photo-face--back p:last-child { margin-bottom: 0; }
+/* Override the cutout-img scale-up on hover — we're flipping instead */
+.team-member:hover .team-photo--flip .team-photo-face--front img { transform: none; }
 .team-bio h3 {
   font-size: 1.2rem;
   margin: 0 0 4px;
