@@ -78,6 +78,51 @@
     });
   });
 
+  // Contact form: AJAX submit so users stay on page after submission
+  document.querySelectorAll('.contact-form').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn ? btn.textContent : '';
+      if (btn) {
+        btn.disabled = true;
+        if (form.dataset.busy) btn.textContent = form.dataset.busy;
+      }
+
+      let ok = false;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        ok = res.ok;
+      } catch (_) {}
+
+      if (ok) {
+        const msg = document.createElement('p');
+        msg.className = 'form-success';
+        msg.setAttribute('role', 'status');
+        msg.textContent = form.dataset.success || 'Thanks — we will be in touch.';
+        form.replaceWith(msg);
+      } else {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
+        let err = form.querySelector('.form-error');
+        if (!err) {
+          err = document.createElement('p');
+          err.className = 'form-error';
+          err.setAttribute('role', 'alert');
+          const note = form.querySelector('.form-note');
+          if (note) note.before(err); else form.appendChild(err);
+        }
+        err.textContent = form.dataset.error || 'Submission failed. Please try again.';
+      }
+    });
+  });
+
   if ('IntersectionObserver' in window) {
     const revealables = document.querySelectorAll('.section-head, .card, .steps li, .case-card, .value-item, .hero-card, .about-photo');
     revealables.forEach((el) => el.classList.add('reveal'));
