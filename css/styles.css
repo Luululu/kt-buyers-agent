@@ -279,21 +279,74 @@ p  { margin: 0 0 1em; color: var(--ink); }
 }
 .steps {
   list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 56px 44px;
+  position: relative;
   counter-reset: step;
 }
 .steps li {
-  background: #fff; border: 1px solid var(--line);
-  border-radius: var(--radius-lg); padding: 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  position: relative;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
-.steps h3 { margin: 12px 0 6px; }
-.steps p { color: var(--ink-muted); margin: 0; }
+.steps li:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(176, 141, 79, 0.4);
+}
+.steps h3 { margin: 14px 0 8px; }
+.steps p { color: var(--ink-muted); margin: 0; font-size: 0.94rem; line-height: 1.65; }
 .step-num {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 38px; height: 38px; border-radius: 50%;
   background: var(--green-800); color: var(--sand);
-  font-family: "Noto Serif SC", "Source Han Serif SC", "Fraunces", Georgia, serif; font-weight: 600;
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Fraunces", Georgia, serif;
+  font-weight: 600; font-size: 0.98rem;
+  box-shadow: 0 0 0 4px var(--cream), 0 0 0 5px rgba(176, 141, 79, 0.35);
 }
+
+/* Snake-flow: row 2 visually reversed so flow continues right→left */
+.steps li:nth-child(5) { grid-column: 4; grid-row: 2; }
+.steps li:nth-child(6) { grid-column: 3; grid-row: 2; }
+.steps li:nth-child(7) { grid-column: 2; grid-row: 2; }
+.steps li:nth-child(8) { grid-column: 1; grid-row: 2; }
+
+/* Chevron arrows between cards (CSS-drawn, no extra markup) */
+.steps li::after {
+  content: '';
+  position: absolute;
+  width: 11px; height: 11px;
+  border: 0 solid var(--sand);
+  pointer-events: none;
+}
+/* Right-pointing chevrons: 1→2, 2→3, 3→4 */
+.steps li:nth-child(1)::after,
+.steps li:nth-child(2)::after,
+.steps li:nth-child(3)::after {
+  right: -28px; top: 50%;
+  border-top-width: 2px; border-right-width: 2px;
+  transform: translateY(-50%) rotate(45deg);
+}
+/* Down-pointing chevron: 4↓5 (drops down at right edge) */
+.steps li:nth-child(4)::after {
+  bottom: -34px; left: 50%;
+  border-bottom-width: 2px; border-right-width: 2px;
+  transform: translateX(-50%) rotate(45deg);
+}
+/* Left-pointing chevrons: 5→6, 6→7, 7→8 */
+.steps li:nth-child(5)::after,
+.steps li:nth-child(6)::after,
+.steps li:nth-child(7)::after {
+  left: -28px; top: 50%;
+  border-bottom-width: 2px; border-left-width: 2px;
+  transform: translateY(-50%) rotate(45deg);
+}
+/* Terminal: no arrow after step 8 */
+.steps li:nth-child(8)::after { display: none; }
 
 /* Areas */
 .areas { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -603,9 +656,6 @@ p  { margin: 0 0 1em; color: var(--ink); }
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
-
-/* Process — 8 steps need 4 columns */
-.steps { grid-template-columns: repeat(4, 1fr); }
 
 /* About — nested video subsection */
 .about-videos { margin-top: clamp(48px, 6vw, 80px); }
@@ -1012,7 +1062,49 @@ p  { margin: 0 0 1em; color: var(--ink); }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .steps { grid-template-columns: repeat(2, 1fr); }
+  /* Steps snake at 2 cols: 1→2 ↓ 4←3 ↓ 5→6 ↓ 8←7 */
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 36px;
+  }
+  .steps li:nth-child(n) { grid-column: auto; grid-row: auto; }
+  .steps li:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .steps li:nth-child(4) { grid-column: 1; grid-row: 2; }
+  .steps li:nth-child(5) { grid-column: 1; grid-row: 3; }
+  .steps li:nth-child(6) { grid-column: 2; grid-row: 3; }
+  .steps li:nth-child(7) { grid-column: 2; grid-row: 4; }
+  .steps li:nth-child(8) { grid-column: 1; grid-row: 4; }
+
+  /* Reset all arrow positions, then redefine per-step */
+  .steps li::after {
+    right: auto; left: auto; top: auto; bottom: auto;
+    border-width: 0;
+    transform: none;
+    display: block;
+  }
+  /* Right chevrons: 1→2, 5→6 */
+  .steps li:nth-child(1)::after,
+  .steps li:nth-child(5)::after {
+    right: -22px; top: 50%;
+    border-top-width: 2px; border-right-width: 2px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  /* Down chevrons (row transitions): 2↓, 4↓, 6↓ */
+  .steps li:nth-child(2)::after,
+  .steps li:nth-child(4)::after,
+  .steps li:nth-child(6)::after {
+    bottom: -28px; left: 50%;
+    border-bottom-width: 2px; border-right-width: 2px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  /* Left chevrons: 3→4, 7→8 */
+  .steps li:nth-child(3)::after,
+  .steps li:nth-child(7)::after {
+    left: -22px; top: 50%;
+    border-bottom-width: 2px; border-left-width: 2px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .steps li:nth-child(8)::after { display: none; }
 }
 
 @media (max-width: 960px) {
@@ -1041,7 +1133,23 @@ p  { margin: 0 0 1em; color: var(--ink); }
   .primary-nav a:last-child { border-bottom: none; }
   .primary-nav .nav-cta { margin-top: 12px; text-align: center; }
 
-  .card-grid, .steps, .quote-grid, .case-grid { grid-template-columns: 1fr; }
+  .card-grid, .quote-grid, .case-grid { grid-template-columns: 1fr; }
+
+  /* Steps: single-column vertical timeline with down arrows */
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .steps li:nth-child(n) { grid-column: 1; grid-row: auto; }
+  .steps li::after {
+    right: auto; top: auto;
+    left: 50%; bottom: -24px;
+    border-width: 0 2px 2px 0;
+    border-color: var(--sand);
+    transform: translateX(-50%) rotate(45deg);
+    display: block;
+  }
+  .steps li:nth-child(8)::after { display: none; }
   .value-item { flex-basis: 100%; max-width: 100%; }
   .areas-cols { grid-template-columns: 1fr; gap: 20px; }
   .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
